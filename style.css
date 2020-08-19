@@ -1,0 +1,95 @@
+@media only screen
+    and (device-width : 375px)
+    and (device-height : 667px)
+    and (-webkit-device-pixel-ratio : 2) { }
+
+    * {
+      background-image: url("assets/hardwood-court.jpg");
+      font-family: "Action NBA Cond Web Bold"
+    }
+
+    .header-container {
+      display: flex;
+    }
+
+    .header {
+      font-size: 64pt;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .header-photo {
+      display: flex;
+      height: 5rem;
+      width: 2.5rem;
+    }
+
+    .text,
+    .location-heading,
+    .location-field {
+      display: flex;
+      justify-content: center;
+    }
+
+    #suggestBoxElement {
+      border: 1px solid #8FABFF;
+      visibility:hidden;
+      text-align: left;
+      white-space: nowrap;
+      background-color: #eeeeee
+    }
+
+    .suggestions {
+      font-size: 14;
+      background-color: #eeeeee
+    }
+
+
+    .suggestionMouseOver {
+      font-size: 14;
+      background: #3333ff;
+      color: white
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 1.5rem;
+    }
+
+    .image-container > img {
+      width: 35%;
+      height: 35%;
+    }
+
+    .button-container {
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nba-button {
+      width: 20%;
+      height: 20%;
+    }
+
+    .blurb-container,
+    .logo-button-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nba-button:active {
+      transform: translateY(4px);
+    }
+
+
+
+    @font-face {
+      font-family: "Action NBA Cond Web Bold";
+      src: url("assets/@font-face/932af5610ca96d552bb927d95149acad.eot") format("embedded-opentype"),
+      url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff2") format("woff2"),
+      url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff") format("woff"),
+      url("assets/@font-face/932af5610ca96d552bb927d95149acad.ttf") format("truetype"),
+      url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg"); }
+    }
