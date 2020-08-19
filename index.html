@@ -32,12 +32,11 @@
             Zip Code/City
           </td>
           <td>
-            <input id="postalcodeInput" name="postalcode" onblur="postalCodeLookup();" size="10" type="text">
+            <input id="zipCodeInput" name="zipcode" size="14" type="text">
           </td>
           <td>
             <span style="position: relative; z-index: 24;">
-              <input id="placeInput" name="place" size="30" onblur="closeSuggestBox();" type="text">
-              <span style="position: absolute; top: 20px; left: 0px; z-index:25;visibility: hidden;" id="suggestBoxElement"></span>
+              <input id="cityInput" name="city" size="30" type="text">
             </span>
           </td>
         </tr>
@@ -61,8 +60,6 @@
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script type="text/javascript" src="http://api.geonames.org/export/geonamesData.js?username=andrewkpark"></script>
-  <script src="components/location.js"></script>
   <script src="components/main.js"></script>
 </body>
 
