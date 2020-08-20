@@ -32,6 +32,10 @@
       justify-content: center;
     }
 
+    .text {
+      font-size: 24pt;
+    }
+
     #suggestBoxElement {
       border: 1px solid #8FABFF;
       visibility:hidden;
@@ -64,25 +68,59 @@
     }
 
     .button-container {
-      justify-content: center;
-      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
     }
+
+    .return,
+    .reroll {
+      flex-direction: column;
+      object-fit: contain;
+    }
+
+    .return-container,
+    .reroll-container {
+      display: flex;
+      border: 2px solid black;
+      border-radius: .25rem;
+      margin: 1rem;
+    }
+
+    .return,
+    .reroll {
+      width: 25%;
+      height: 25%;
+    }
+
+    .return-blurb,
+    .reroll-blurb {
+      font-size: 32pt;
+      padding-left: 1.5rem;
+    }
+
 
     .nba-button {
       width: 20%;
       height: 20%;
     }
 
-    .blurb-container,
     .logo-button-container {
       display: flex;
       justify-content: center;
     }
 
-    .nba-button:active {
-      transform: translateY(4px);
+    .blurb-container {
+      display: flex;
+      justify-content: center;
+      font-size: 12pt;
     }
 
+    .nba-button:active,
+    .reroll-container:active,
+    .return-container:active {
+      transform: translateY(4px);
+    }
 
 
     @font-face {
