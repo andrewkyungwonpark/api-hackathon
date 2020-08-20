@@ -67,7 +67,7 @@ function loadLocationField() {
   tbody.append(trow);
   table.append(tbody);
   locationField.append(table);
-  let bodyContainer = document.querySelector('.body-container');
+  let bodyContainer = document.querySelector('.body-container')
   let headerBlurb = document.querySelector('.header-blurb')
   let whereAreYou = document.querySelector('.where-are-you');
   bodyContainer.append(headerBlurb, whereAreYou, locationField);
@@ -150,23 +150,83 @@ function appendDivs() {
   container.append(header, bodyContainer, image, blurb, buttons);
 }
 
-function startApp() {
-  loadHeader();
-  loadContainer();
-  loadBody();
-  loadLocationField();
-  loadImages();
-  loadBlurb();
-  loadButtons();
-  appendDivs();
-}
+// function startApp() {
+//   loadHeader();
+//   loadContainer();
+//   loadBody();
+//   loadLocationField();
+//   loadImages();
+//   loadBlurb();
+//   loadButtons();
+//   appendDivs();
+// }
 
 
-window.addEventListener('load', startApp, function () {
-  let bodyContainer = document.querySelector('.body-container');
-  let image = document.querySelector('.image-container');
-  let blurb = document.querySelector('.blurb-container');
-  let buttons = document.querySelector('.button-container');
+window.addEventListener('load', function () {
+  let container = document.createElement('div');
+  container.classList.add('container');
+  document.body.append(container);
+
+  let header = document.createElement('div');
+  header.classList.add('header-container');
+  let headerPhoto1 = document.createElement('img');
+  let headerPhoto2 = document.createElement('img');
+  headerPhoto1.classList.add('header-photo');
+  headerPhoto2.classList.add('header-photo')
+  headerPhoto1.src = 'assets/nba-transparent.png';
+  headerPhoto2.src = 'assets/nba-transparent.png'
+  let headerText = document.createElement('h1');
+  headerText.classList.add('header');
+  headerText.textContent = 'HOW TO NBA';
+  header.append(headerPhoto1, headerText, headerPhoto2);
+
+  let bodyContainer = document.createElement('div');
+  bodyContainer.classList.add('body-container');
+  let headerBlurb = document.createElement('div');
+  headerBlurb.classList.add('header-blurb')
+  let headerH2 = document.createElement('h2');
+  headerH2.classList.add('text');
+  headerH2.textContent = 'Don\'t know which team to root for? We can help!'
+  headerBlurb.append(headerH2);
+  let whereAreYou = document.createElement('div');
+  whereAreYou.classList.add('where-are-you')
+  let locationHeading = document.createElement('h2');
+  locationHeading.classList.add('location-heading');
+  locationHeading.textContent = 'Where are you from?';
+  whereAreYou.append(locationHeading);
+
+  let locationField = document.createElement('form')
+  locationField.classList.add('location-field');
+  let table = document.createElement('table');
+  let tbody = document.createElement('tbody');
+  let trow = document.createElement('tr');
+  let zipAndCity = document.createElement('td');
+  zipAndCity.textContent = 'Zip Code/City';
+  let zipTd = document.createElement('td');
+  let zipCodeInput = document.createElement('input');
+  zipCodeInput.setAttribute('id', 'zipCodeInput');
+  zipCodeInput.setAttribute('name', 'zipcode');
+  zipCodeInput.setAttribute('size', '14');
+  zipCodeInput.setAttribute('type', 'text');
+  zipTd.append(zipCodeInput);
+  let spanTd = document.createElement('td');
+  let span = document.createElement('span');
+  span.style.position = 'relative';
+  span.style.zIndex = '24';
+  let cityInput = document.createElement('input')
+  cityInput.setAttribute('id', 'cityInput');
+  cityInput.setAttribute('name', 'city');
+  cityInput.setAttribute('size', '30');
+  cityInput.setAttribute('type', 'text');
+  span.append(cityInput);
+  spanTd.append(span);
+  trow.append(zipAndCity, zipTd, spanTd);
+  tbody.append(trow);
+  table.append(tbody);
+  locationField.append(table);
+  bodyContainer.append(headerBlurb, whereAreYou, locationField);
+
+
   const containerArr = [
     bodyContainer,
     image,
@@ -179,7 +239,37 @@ window.addEventListener('load', startApp, function () {
     for (let i = 0; i < containerArr.length; i++) {
       containerArr[i].innerHTML = '';
     }
-    newLandingPage();
+    let fanOf = document.createElement('h2')
+    fanOf.classList.add('text');
+    fanOf.setAttribute('id', 'fan-of')
+    fanOf.textContent = 'You are now a fan of:'
+    let teamText = document.createElement('h2');
+    teamText.classList.add('text');
+    teamText.setAttribute('id', 'team-text')
+    let teamLogo = document.createElement('img');
+    teamLogo.setAttribute('id', 'team-logo')
+    let image = document.querySelector('.image-container');
+    image.append(teamLogo);
+    let returnContainer = document.createElement('div');
+    returnContainer.classList.add('return-container');
+    let rerollContainer = document.createElement('div');
+    rerollContainer.classList.add('reroll-container')
+    let buttonContainer = document.querySelector('.button-container')
+    buttonContainer.append(returnContainer, rerollContainer);
+    let returnButton = document.createElement('img');
+    returnButton.classList.add('return');
+    returnButton.src = 'assets/nba-players/kobe.png'
+    let rerollButton = document.createElement('img');
+    rerollButton.classList.add('reroll');
+    rerollButton.src = 'assets/nba-players/durant.png'
+    let returnBlurb = document.createElement('h2');
+    returnBlurb.classList.add('return-blurb')
+    returnBlurb.textContent = 'RETURN TO HOME'
+    let rerollBlurb = document.createElement('h2');
+    rerollBlurb.textContent = 'GIVE ME ANOTHER TEAM';
+    rerollBlurb.classList.add('reroll-blurb')
+    returnContainer.append(returnButton, returnBlurb);
+    rerollContainer.append(rerollButton, rerollBlurb);
 
     //Generate random team from data fetched
     $.ajax({
@@ -196,10 +286,6 @@ window.addEventListener('load', startApp, function () {
         }
       }
     })
-    let fanOf = document.getElementById('fan-of');
-    let teamText = document.getElementById('team-text');
-    let teamLogo = document.getElementById('team-logo');
-    let rerollContainer = document.querySelector('.reroll-container')
     bodyContainer.append(fanOf, teamText)
 
     //reroll team (durant button)
@@ -227,8 +313,6 @@ window.addEventListener('load', startApp, function () {
     return teams[Math.floor(Math.random() * teams.length)].full_name;
   }
 
-  let zipCodeInput = document.getElementById('zipCodeInput');
-  let cityInput = document.getElementById('cityInput')
   //Zip Code Ajax call that will auto-populate city when user inputs zip code
   zipCodeInput.addEventListener('input', function (event) {
     console.log(event.target.value)
