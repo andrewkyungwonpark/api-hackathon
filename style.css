@@ -1,9 +1,4 @@
-@media only screen
-    and (device-width : 375px)
-    and (device-height : 667px)
-    and (-webkit-device-pixel-ratio : 2) { }
-
-    * {
+ * {
       background-image: url("assets/hardwood-court.jpg");
       font-family: "Action NBA Cond Web Bold"
     }
@@ -126,6 +121,9 @@
       transform: translateY(4px);
     }
 
+    .hidden {
+      display: none;
+    }
 
     @font-face {
       font-family: "Action NBA Cond Web Bold";
