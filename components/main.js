@@ -3,6 +3,10 @@ const bodyContainer = document.querySelector('.body-container');
 const image = document.querySelector('.image-container');
 const blurb = document.querySelector('.blurb-container');
 const buttons = document.querySelector('.button-container');
+const zipCodeInput = document.getElementById('zip-code-input');
+const cityInput = document.getElementById('city-input')
+const modal = document.querySelector('.modal')
+const modalButton = document.querySelector('.modal-button');
 
 const containers = [
   bodyContainer,
@@ -11,9 +15,26 @@ const containers = [
   blurb,
 ];
 
+
+
+
 let nbaButton = document.querySelector('.nba-button')
 nbaButton.addEventListener('click', (event) => {
+  if (zipCodeInput.value === '') {
+    modal.classList.remove('hidden');
+
+    modalButton.addEventListener('click', (event) => {
+      modal.classList.add('hidden');
+      showView('return-home');
+      teamContainer.parentNode.removeChild(teamContainer);
+      teamLogo.parentNode.removeChild(teamLogo);
+    })
+  }
+
   showView('logo');
+  let teamContainer = document.createElement('div');
+  teamContainer.classList.add('.team-container');
+  bodyContainer.append(teamContainer);
   let fanOf = document.createElement('h2')
   fanOf.classList.add('text', 'view');
   fanOf.setAttribute('id', 'fan-of')
@@ -21,6 +42,8 @@ nbaButton.addEventListener('click', (event) => {
   let teamText = document.createElement('h2');
   teamText.classList.add('text', 'view');
   teamText.setAttribute('id', 'team-text')
+  teamContainer.append(fanOf, teamText);
+
   let teamLogo = document.createElement('img');
   teamLogo.setAttribute('id', 'team-logo')
   teamLogo.classList.add('view');
@@ -61,7 +84,6 @@ nbaButton.addEventListener('click', (event) => {
       }
     }
   })
-  bodyContainer.append(fanOf, teamText)
 
   //reroll team (durant button)
   rerollContainer.addEventListener('click', (event) => {
@@ -82,7 +104,11 @@ nbaButton.addEventListener('click', (event) => {
   })
 
   returnContainer.addEventListener('click', (event) => {
-    showView('return-home')
+    showView('return-home');
+    teamContainer.parentNode.removeChild(teamContainer);
+    teamLogo.parentNode.removeChild(teamLogo);
+    zipCodeInput.value = '';
+    cityInput.value = '';
   })
   //function to get random team name generated from data fetched
   function getRandomTeamName(teams) {
