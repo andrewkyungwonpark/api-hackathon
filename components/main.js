@@ -28,6 +28,8 @@ nbaButton.addEventListener('click', (event) => {
       showView('return-home');
       teamContainer.parentNode.removeChild(teamContainer);
       teamLogo.parentNode.removeChild(teamLogo);
+      rerollContainer.parentNode.removeChild(rerollContainer);
+      returnContainer.parentNode.removeChild(returnContainer);
     })
   }
 
@@ -49,7 +51,6 @@ nbaButton.addEventListener('click', (event) => {
   teamLogo.classList.add('view');
   image.append(teamLogo);
   let returnContainer = document.createElement('div');
-  // returnContainer.setAttribute('data-view-name', 'return-home');
   returnContainer.classList.add('return-container', 'view');
   let rerollContainer = document.createElement('div');
   rerollContainer.classList.add('reroll-container', 'view')
@@ -107,6 +108,8 @@ nbaButton.addEventListener('click', (event) => {
     showView('return-home');
     teamContainer.parentNode.removeChild(teamContainer);
     teamLogo.parentNode.removeChild(teamLogo);
+    rerollContainer.parentNode.removeChild(rerollContainer);
+    returnContainer.parentNode.removeChild(returnContainer);
     zipCodeInput.value = '';
     cityInput.value = '';
   })
