@@ -1,161 +1,173 @@
- * {
-      background-image: url("assets/hardwood-court.jpg");
-      font-family: "Action NBA Cond Web Bold"
-    }
+* {
+  background-image: url("assets/hardwood-court.jpg");
+  font-family: "Action NBA Cond Web Bold"
+}
 
-    .header-container {
-      display: flex;
-    }
+.header-container {
+  display: flex;
+}
 
-    .header {
-      font-size: 64pt;
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-    }
+.header {
+  font-size: 64pt;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
 
-    .header-photo {
-      display: flex;
-      height: 5rem;
-      width: 2.5rem;
-    }
+.header-photo {
+  display: flex;
+  height: 5rem;
+  width: 2.5rem;
+}
 
-    .text,
-    .location-heading,
-    .location-field {
-      display: flex;
-      justify-content: center;
-    }
+.text,
+.location-heading,
+.location-field {
+  display: flex;
+  justify-content: center;
+}
 
-    .text {
-      font-size: 24pt;
-    }
+.text {
+  font-size: 24pt;
+}
 
-    #suggestBoxElement {
-      border: 1px solid #8FABFF;
-      visibility:hidden;
-      text-align: left;
-      white-space: nowrap;
-      background-color: #eeeeee
-    }
+#suggestBoxElement {
+  border: 1px solid #8FABFF;
+  visibility:hidden;
+  text-align: left;
+  white-space: nowrap;
+  background-color: #eeeeee
+}
 
-    .suggestions {
-      font-size: 14;
-      background-color: #eeeeee
-    }
+.suggestions {
+  font-size: 14;
+  background-color: #eeeeee
+}
+.suggestionMouseOver {
+  font-size: 14;
+  background: #3333ff;
+  color: white
+}
+#zip-code-city {
+  font-size: 18pt;
+}
+#city-input {
+  height: 1.5rem;
+}
+
+#zip-code-input {
+  height: 1.5rem;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.image-container > img {
+  width: 33%;
+  height: 33%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.return,
+.reroll {
+  flex-direction: column;
+  object-fit: contain;
+}
+
+.return-container,
+.reroll-container {
+  display: flex;
+  border: 2px solid black;
+  border-radius: .25rem;
+  margin: 1rem;
+}
+
+.return,
+.reroll {
+  width: 25%;
+  height: 25%;
+  padding-top: .75rem;
+}
+
+.return-blurb,
+.reroll-blurb {
+  font-size: 32pt;
+  padding-left: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+}
 
 
-    .suggestionMouseOver {
-      font-size: 14;
-      background: #3333ff;
-      color: white
-    }
+.nba-button {
+  width: 20%;
+  height: 20%;
+}
 
-    .image-container {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 1.5rem;
-    }
+.logo-button-container {
+  display: flex;
+  justify-content: center;
+}
 
-    .image-container > img {
-      width: 33%;
-      height: 33%;
-    }
+.blurb-container {
+  display: flex;
+  justify-content: center;
+  font-size: 12pt;
+}
 
-    .button-container {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: column;
-    }
+.nba-button:active,
+.reroll-container:active,
+.return-container:active {
+  transform: translateY(4px);
+}
 
-    .return,
-    .reroll {
-      flex-direction: column;
-      object-fit: contain;
-    }
+.hidden {
+  display: none;
+}
 
-    .return-container,
-    .reroll-container {
-      display: flex;
-      border: 2px solid black;
-      border-radius: .25rem;
-      margin: 1rem;
-    }
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 2rem;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
 
-    .return,
-    .reroll {
-      width: 25%;
-      height: 25%;
-      padding-top: .75rem;
-    }
+.modal-content {
+  background-color: white;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid black;
+  width: 75%;
+  font-size: 32pt;
+}
 
-    .return-blurb,
-    .reroll-blurb {
-      font-size: 32pt;
-      padding-left: 1.5rem;
-      align-items: center;
-      justify-content: center;
-      padding-top: 1rem;
-    }
+.modal-button {
+  border-radius: .25rem;
+  font-size: 24pt;
+}
 
+@font-face {
+  font-family: "Action NBA Cond Web Bold";
+  src: url("assets/@font-face/932af5610ca96d552bb927d95149acad.eot") format("embedded-opentype"),
+  url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff2") format("woff2"),
+  url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff") format("woff"),
+  url("assets/@font-face/932af5610ca96d552bb927d95149acad.ttf") format("truetype"),
+  url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg"); }
+}
 
-    .nba-button {
-      width: 20%;
-      height: 20%;
-    }
+@media only screen and (min-width: 767px) {
 
-    .logo-button-container {
-      display: flex;
-      justify-content: center;
-    }
-
-    .blurb-container {
-      display: flex;
-      justify-content: center;
-      font-size: 12pt;
-    }
-
-    .nba-button:active,
-    .reroll-container:active,
-    .return-container:active {
-      transform: translateY(4px);
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .modal {
-      position: fixed;
-      z-index: 1;
-      padding-top: 2rem;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.4);
-    }
-
-    .modal-content {
-      background-color: white;
-      margin: auto;
-      padding: 1rem;
-      border: 1px solid black;
-      width: 75%;
-      font-size: 32pt;
-    }
-
-    .modal-button {
-      border-radius: .25rem;
-      font-size: 24pt;
-    }
-
-    @font-face {
-      font-family: "Action NBA Cond Web Bold";
-      src: url("assets/@font-face/932af5610ca96d552bb927d95149acad.eot") format("embedded-opentype"),
-      url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff2") format("woff2"),
-      url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff") format("woff"),
-      url("assets/@font-face/932af5610ca96d552bb927d95149acad.ttf") format("truetype"),
-      url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg"); }
-    }
+}
