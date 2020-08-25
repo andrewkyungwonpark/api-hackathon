@@ -7,6 +7,7 @@ const zipCodeInput = document.getElementById('zip-code-input');
 const cityInput = document.getElementById('city-input')
 const modal = document.querySelector('.modal')
 const modalButton = document.querySelector('.modal-button');
+let sneakerData = null;
 
 const containers = [
   bodyContainer,
@@ -15,6 +16,54 @@ const containers = [
   blurb,
 ];
 
+
+const nbaLogosArr = [
+  { team: 'Portland Trail Blazers', image: 'assets/nba-team-logos/blazers.png' },
+  { team: 'Milwaukee Bucks', image: 'assets/nba-team-logos/bucks.png' },
+  { team: 'Chicago Bulls', image: 'assets/nba-team-logos/bulls.png' },
+  { team: 'Cleveland Cavaliers', image: 'assets/nba-team-logos/cavs.png' },
+  { team: 'Boston Celtics', image: 'assets/nba-team-logos/celtics.png' },
+  { team: 'LA Clippers', image: 'assets/nba-team-logos/clippers.png' },
+  { team: 'Memphis Grizzlies', image: 'assets/nba-team-logos/grizzlies.png' },
+  { team: 'Atlanta Hawks', image: 'assets/nba-team-logos/hawks.png' },
+  { team: 'Miami Heat', image: 'assets/nba-team-logos/heat.png' },
+  { team: 'Charlotte Hornets', image: 'assets/nba-team-logos/hornets.png' },
+  { team: 'Utah Jazz', image: 'assets/nba-team-logos/jazz.png' },
+  { team: 'Sacramento Kings', image: 'assets/nba-team-logos/kings.png' },
+  { team: 'New York Knicks', image: 'assets/nba-team-logos/knicks.png' },
+  { team: 'Los Angeles Lakers', image: 'assets/nba-team-logos/lakers.png' },
+  { team: 'Orlando Magic', image: 'assets/nba-team-logos/magic.png' },
+  { team: 'Dallas Mavericks', image: 'assets/nba-team-logos/mavericks.png' },
+  { team: 'Brooklyn Nets', image: 'assets/nba-team-logos/nets.png' },
+  { team: 'Denver Nuggets', image: 'assets/nba-team-logos/nuggets.png' },
+  { team: 'Indiana Pacers', image: 'assets/nba-team-logos/pacers.png' },
+  { team: 'New Orleans Pelicans', image: 'assets/nba-team-logos/pelicans.png' },
+  { team: 'Detroit Pistons', image: 'assets/nba-team-logos/pistons.png' },
+  { team: 'Toronto Raptors', image: 'assets/nba-team-logos/raptors.png' },
+  { team: 'Houston Rockets', image: 'assets/nba-team-logos/rockets.png' },
+  { team: 'Philadelphia 76ers', image: 'assets/nba-team-logos/sixers.png' },
+  { team: 'San Antonio Spurs', image: 'assets/nba-team-logos/spurs.png' },
+  { team: 'Phoenix Suns', image: 'assets/nba-team-logos/suns.png' },
+  { team: 'Oklahoma City Thunder', image: 'assets/nba-team-logos/thunder.png' },
+  { team: 'Minnesota Timberwolves', image: 'assets/nba-team-logos/timberwolves.png' },
+  { team: 'Golden State Warriors', image: 'assets/nba-team-logos/warriors.png' },
+  { team: 'Washington Wizards', image: 'assets/nba-team-logos/wizards.png' },
+];
+
+const brands = [
+  'ASICS',
+  "ADIDAS",
+  "CONVERSE",
+  "JORDAN",
+  "NEW BALANCE",
+  "NIKE",
+  "PUMA",
+  "REEBOK",
+  "SAUCONY",
+  "UNDER ARMOUR",
+  "VANS",
+  "YEEZY"
+]
 
 
 
@@ -146,58 +195,24 @@ nbaButton.addEventListener('click', (event) => {
     }
   }
 
-  const nbaLogosArr = [
-    { team: 'Portland Trail Blazers', image: 'assets/nba-team-logos/blazers.png' },
-    { team: 'Milwaukee Bucks', image: 'assets/nba-team-logos/bucks.png' },
-    { team: 'Chicago Bulls', image: 'assets/nba-team-logos/bulls.png' },
-    { team: 'Cleveland Cavaliers', image: 'assets/nba-team-logos/cavs.png' },
-    { team: 'Boston Celtics', image: 'assets/nba-team-logos/celtics.png' },
-    { team: 'LA Clippers', image: 'assets/nba-team-logos/clippers.png' },
-    { team: 'Memphis Grizzlies', image: 'assets/nba-team-logos/grizzlies.png' },
-    { team: 'Atlanta Hawks', image: 'assets/nba-team-logos/hawks.png' },
-    { team: 'Miami Heat', image: 'assets/nba-team-logos/heat.png' },
-    { team: 'Charlotte Hornets', image: 'assets/nba-team-logos/hornets.png' },
-    { team: 'Utah Jazz', image: 'assets/nba-team-logos/jazz.png' },
-    { team: 'Sacramento Kings', image: 'assets/nba-team-logos/kings.png' },
-    { team: 'New York Knicks', image: 'assets/nba-team-logos/knicks.png' },
-    { team: 'Los Angeles Lakers', image: 'assets/nba-team-logos/lakers.png' },
-    { team: 'Orlando Magic', image: 'assets/nba-team-logos/magic.png' },
-    { team: 'Dallas Mavericks', image: 'assets/nba-team-logos/mavericks.png' },
-    { team: 'Brooklyn Nets', image: 'assets/nba-team-logos/nets.png' },
-    { team: 'Denver Nuggets', image: 'assets/nba-team-logos/nuggets.png' },
-    { team: 'Indiana Pacers', image: 'assets/nba-team-logos/pacers.png' },
-    { team: 'New Orleans Pelicans', image: 'assets/nba-team-logos/pelicans.png' },
-    { team: 'Detroit Pistons', image: 'assets/nba-team-logos/pistons.png' },
-    { team: 'Toronto Raptors', image: 'assets/nba-team-logos/raptors.png' },
-    { team: 'Houston Rockets', image: 'assets/nba-team-logos/rockets.png' },
-    { team: 'Philadelphia 76ers', image: 'assets/nba-team-logos/sixers.png' },
-    { team: 'San Antonio Spurs', image: 'assets/nba-team-logos/spurs.png' },
-    { team: 'Phoenix Suns', image: 'assets/nba-team-logos/suns.png' },
-    { team: 'Oklahoma City Thunder', image: 'assets/nba-team-logos/thunder.png' },
-    { team: 'Minnesota Timberwolves', image: 'assets/nba-team-logos/timberwolves.png' },
-    { team: 'Golden State Warriors', image: 'assets/nba-team-logos/warriors.png' },
-    { team: 'Washington Wizards', image: 'assets/nba-team-logos/wizards.png' },
-  ];
 
-const brands = [
-  'ASICS',
-  "ADIDAS",
-  "CONVERSE",
-  "JORDAN",
-  "NEW BALANCE",
-  "NIKE",
-  "PUMA",
-  "REEBOK",
-  "SAUCONY",
-  "UNDER ARMOUR",
-  "VANS",
-  "YEEZY"
-]
 
-const randomBrand = brands[Math.floor(Math.random() * brands.length)];
+function getSneaker() {
+  const randomBrand = brands[Math.floor(Math.random() * brands.length)];
 
-$.ajax({
-  type: 'GET',
-  'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=" + randomBrand,
-  success: data => console.log(data)
-})
+  $.ajax({
+    type: 'GET',
+    'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
+    success: data => {
+      const sneakersWithImages = []
+      for(let i = 0; i < data.results.length; i++) {
+        if(data.results[i].media.imageUrl) {
+          sneakersWithImages.push(data.results[i])
+        }
+      }
+      sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
+      console.log(sneakerData)
+    },
+    error: console.error
+  })
+}
