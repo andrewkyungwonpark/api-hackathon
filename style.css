@@ -1,6 +1,9 @@
 * {
-  background-image: url("assets/hardwood-court.jpg");
   font-family: "Action NBA Cond Web Bold"
+}
+
+body {
+  background-image: url("assets/hardwood-court.jpg");
 }
 
 @font-face {

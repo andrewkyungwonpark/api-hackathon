@@ -178,3 +178,26 @@ nbaButton.addEventListener('click', (event) => {
     { team: 'Golden State Warriors', image: 'assets/nba-team-logos/warriors.png' },
     { team: 'Washington Wizards', image: 'assets/nba-team-logos/wizards.png' },
   ];
+
+const brands = [
+  'ASICS',
+  "ADIDAS",
+  "CONVERSE",
+  "JORDAN",
+  "NEW BALANCE",
+  "NIKE",
+  "PUMA",
+  "REEBOK",
+  "SAUCONY",
+  "UNDER ARMOUR",
+  "VANS",
+  "YEEZY"
+]
+
+const randomBrand = brands[Math.floor(Math.random() * brands.length)];
+
+$.ajax({
+  type: 'GET',
+  'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=10&brand=" + randomBrand,
+  success: data => console.log(data)
+})
