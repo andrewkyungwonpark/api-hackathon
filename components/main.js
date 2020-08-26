@@ -67,33 +67,34 @@ const brands = [
 
 
 
-let nbaButton = document.querySelector('.nba-button')
+let nbaButton = document.getElementById('logo-button')
 nbaButton.addEventListener('click', (event) => {
-  if (zipCodeInput.value === '') {
-    modal.classList.remove('hidden');
-
-    modalButton.addEventListener('click', (event) => {
-      modal.classList.add('hidden');
-      showView('return-home');
-      teamContainer.parentNode.removeChild(teamContainer);
-      teamLogo.parentNode.removeChild(teamLogo);
-      rerollContainer.parentNode.removeChild(rerollContainer);
-      returnContainer.parentNode.removeChild(returnContainer);
-    })
-  }
-
   showView('logo');
+  let teamAndShoeContainer = document.createElement('div');
+  teamAndShoeContainer.classList.add('team-and-shoe');
+  bodyContainer.append(teamAndShoeContainer);
   let teamContainer = document.createElement('div');
-  teamContainer.classList.add('.team-container');
+  teamContainer.classList.add('team-container');
   bodyContainer.append(teamContainer);
   let fanOf = document.createElement('h2')
   fanOf.classList.add('text', 'view');
   fanOf.setAttribute('id', 'fan-of')
   fanOf.textContent = 'You are now a fan of:'
   let teamText = document.createElement('h2');
+  let teamAndText = document.createElement('div');
+  teamAndText.classList.add('team-and-text');
   teamText.classList.add('text', 'view');
   teamText.setAttribute('id', 'team-text')
   teamContainer.append(fanOf, teamText);
+  let shoeContainer = document.createElement('div');
+  shoeContainer.classList.add('shoe-container');
+  bodyContainer.append(shoeContainer);
+  let sneakerImg = document.createElement('img');
+  shoeContainer.append(sneakerImg);
+  sneakerImg.classList.add('sneaker-img');
+  let imageContainer = document.querySelector('.image-container');
+  teamAndText.append(teamContainer, imageContainer);
+  teamAndShoeContainer.append(teamAndText, shoeContainer);
 
   let teamLogo = document.createElement('img');
   teamLogo.setAttribute('id', 'team-logo')
@@ -115,7 +116,7 @@ nbaButton.addEventListener('click', (event) => {
   returnBlurb.classList.add('return-blurb')
   returnBlurb.textContent = 'RETURN TO HOME'
   let rerollBlurb = document.createElement('h2');
-  rerollBlurb.textContent = 'GIVE ME ANOTHER TEAM';
+  rerollBlurb.textContent = 'GIVE ME ANOTHER TEAM/KICKS';
   rerollBlurb.classList.add('reroll-blurb')
   returnContainer.append(returnButton, returnBlurb);
   rerollContainer.append(rerollButton, rerollBlurb);
@@ -139,6 +140,7 @@ nbaButton.addEventListener('click', (event) => {
   rerollContainer.addEventListener('click', (event) => {
     teamText.innerHTML = '';
     teamLogo.innerHTML = '';
+    getSneaker();
     $.ajax({
       'url': "https://www.balldontlie.io/api/v1/teams",
       success: data => {
@@ -153,36 +155,20 @@ nbaButton.addEventListener('click', (event) => {
     })
   })
 
+getSneaker();
+
   returnContainer.addEventListener('click', (event) => {
     showView('return-home');
     teamContainer.parentNode.removeChild(teamContainer);
     teamLogo.parentNode.removeChild(teamLogo);
     rerollContainer.parentNode.removeChild(rerollContainer);
     returnContainer.parentNode.removeChild(returnContainer);
-    zipCodeInput.value = '';
-    cityInput.value = '';
   })
   //function to get random team name generated from data fetched
   function getRandomTeamName(teams) {
     return teams[Math.floor(Math.random() * teams.length)].full_name;
   }
 })
-
-
-
-  //Zip Code Ajax call that will auto-populate city when user inputs zip code
-  zipCodeInput.addEventListener('input', function (event) {
-    console.log(event.target.value)
-    if (event.target.value.length === 5) {
-      $.ajax({
-        url: "http://api.geonames.org/postalCodeLookupJSON?&postalcode=" + event.target.value + "&country=US&username=andrewkpark",
-        success: data => {
-          console.log(data);
-          cityInput.value = data.postalcodes[0].placeName
-        }
-      })
-    }
-  })
 
   function showView(viewName) {
     const views = document.querySelectorAll('.view')
@@ -211,6 +197,8 @@ function getSneaker() {
         }
       }
       sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
+      let sneakerImg = document.querySelector('.sneaker-img');
+      sneakerImg.src = sneakerData.media.imageUrl;
       console.log(sneakerData)
     },
     error: console.error
