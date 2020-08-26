@@ -1,6 +1,6 @@
 # Drive-n-Kicks
 
-A front-end web applicatiion that helps the user pick a new NBA team to root for, as well as a new pair of sneakers to go with the team.
+A front-end web application that helps the user pick a new NBA team to root for, as well as a new pair of sneakers to go with the team.
 
 ## Technologies Used
 
