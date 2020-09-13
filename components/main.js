@@ -67,9 +67,9 @@ const brands = [
 
 
 
-let nbaButton = document.getElementById('logo-button')
+let nbaButton = document.getElementById('nba-button')
 nbaButton.addEventListener('click', (event) => {
-  showView('logo');
+  showView('nba');
   let teamAndShoeContainer = document.createElement('div');
   teamAndShoeContainer.classList.add('team-and-shoe');
   bodyContainer.append(teamAndShoeContainer);
@@ -88,7 +88,11 @@ nbaButton.addEventListener('click', (event) => {
   teamContainer.append(fanOf, teamText);
   let shoeContainer = document.createElement('div');
   shoeContainer.classList.add('shoe-container');
+  let yourSneaker = document.createElement('h2');
   bodyContainer.append(shoeContainer);
+  let sneakerText = document.createElement('h2');
+  shoeContainer.append(sneakerText);
+  sneakerText.classList.add('sneaker-text');
   let sneakerImg = document.createElement('img');
   shoeContainer.append(sneakerImg);
   sneakerImg.classList.add('sneaker-img');
@@ -161,6 +165,7 @@ getSneaker();
     showView('return-home');
     teamContainer.parentNode.removeChild(teamContainer);
     teamLogo.parentNode.removeChild(teamLogo);
+    shoeContainer.parentNode.removeChild(shoeContainer);
     rerollContainer.parentNode.removeChild(rerollContainer);
     returnContainer.parentNode.removeChild(returnContainer);
   })
@@ -199,7 +204,8 @@ function getSneaker() {
       sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
       let sneakerImg = document.querySelector('.sneaker-img');
       sneakerImg.src = sneakerData.media.imageUrl;
-      console.log(sneakerData)
+      let sneakerText = document.querySelector('.sneaker-text');
+      sneakerText.textContent = 'Your sneaker: \n' + sneakerData.title;
     },
     error: console.error
   })
