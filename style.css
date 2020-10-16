@@ -13,13 +13,12 @@ body {
   url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff2") format("woff2"),
   url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff") format("woff"),
   url("assets/@font-face/932af5610ca96d552bb927d95149acad.ttf") format("truetype"),
-  url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg");z
+  url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg");
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
-
 
 @media screen and (max-width: 1024px){
   .header-container {
@@ -93,13 +92,7 @@ body {
   .sneaker {
     padding: 1.5rem;
     width: 13%;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
   }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
   .button-container {
   display: flex;
@@ -237,17 +230,6 @@ body {
   .sneaker-text {
     font-size: 24pt;
   }
-
-  .sneaker {
-    padding: 1.5rem;
-    width: 33%;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-  }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
   .button-container {
   display: flex;
@@ -394,18 +376,6 @@ body {
     font-size: 24pt;
   }
 
-  .sneaker {
-    padding: 1.5rem;
-    width: 10%;
-    margin-top: -1rem;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-  }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
   .button-container {
   display: flex;
   justify-content: space-between;
@@ -471,6 +441,11 @@ body {
   }
 }
 @media (max-width: 375px) {
+
+  * {
+    overflow-y: hidden;
+  }
+
   .header-container {
   display: flex;
   }
@@ -480,6 +455,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+
   }
   .header-blurb{
     justify-content: center;
@@ -507,13 +483,15 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    flex: 50%
+    flex: 50%;
+    margin-top: 2rem;
   }
   .shoe-container {
     flex: 50%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
   }
   .team-container {
     justify-content: center;
@@ -541,17 +519,6 @@ body {
   .sneaker-text {
     font-size: 24pt;
   }
-
-  .sneaker {
-    padding: 1.5rem;
-    width: 33%;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-  }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
   .button-container {
   display: flex;
@@ -595,8 +562,9 @@ body {
 
 
   #nba-button {
-  width: 20%;
-  height: 20%;
+  width: 25%;
+  height: auto;
+  margin-top: 3rem;
   }
 
   .nba-button-container {
@@ -610,9 +578,10 @@ body {
   }
 
   .button-blurb{
-    justify-content: center;
+    display: flex;
+    justify-content: end;
     font-size: 24pt;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
 
   #nba-button:active,

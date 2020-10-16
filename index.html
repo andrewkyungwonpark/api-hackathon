@@ -7,10 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="header-container">
       <img class="header-photo" src="assets/nba-transparent.png">
       <h1 class="header">DRIVE-N-KICKS</h1>
@@ -22,24 +24,20 @@
       </div>
       <div class="button-container">
         <div class="view nba-button-container" data-view-name="return-home">
-          <img class="view sneaker" src="assets/51181_00.png.webp" data-view-name="return-home">
-          <input class="view" type="image" id="nba-button" src="assets/nba-transparent.png" data-view-name="return-home">
-          <img class="view sneaker" src="assets/51181_00.png.webp" data-view-name="return-home">
+          <input class="view" type="image" id="nba-button" src="assets/nba-transparent.png"
+            data-view-name="return-home">
         </div>
       </div>
-    <div class="image-container">
-      <img src="assets/nba-players/giannis.png" class="view nba-players" data-view-name="return-home">
-      <img src="assets/nba-players/lebron.png" class="view nba-players" data-view-name="return-home">
-      <img src="assets/nba-players/steph.png" class="view nba-players" data-view-name="return-home">
-    </div>
-    <div class="blurb-container">
-      <h2 class="view button-blurb" data-view-name="return-home">Click the logo to get a team and a pair of shoes!</h2>
+      <div class="view image-container">
+      </div>
+      <div class="blurb-container">
+        <h2 class="view button-blurb" data-view-name="return-home">Click the logo to get a team and a pair of shoes!
+        </h2>
+      </div>
     </div>
   </div>
-
-
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="components/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="components/main.js"></script>
 </body>
 
 </html>

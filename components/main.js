@@ -97,13 +97,12 @@ nbaButton.addEventListener('click', (event) => {
   shoeContainer.append(sneakerImg);
   sneakerImg.classList.add('sneaker-img');
   let imageContainer = document.querySelector('.image-container');
-  teamAndText.append(teamContainer, imageContainer);
   teamAndShoeContainer.append(teamAndText, shoeContainer);
 
   let teamLogo = document.createElement('img');
   teamLogo.setAttribute('id', 'team-logo')
   teamLogo.classList.add('view');
-  image.append(teamLogo);
+  teamAndText.append(teamContainer, teamLogo);
   let returnContainer = document.createElement('div');
   returnContainer.classList.add('return-container', 'view');
   let rerollContainer = document.createElement('div');
@@ -125,7 +124,6 @@ nbaButton.addEventListener('click', (event) => {
   returnContainer.append(returnButton, returnBlurb);
   rerollContainer.append(rerollButton, rerollBlurb);
 
-  //Generate random team from data fetched
   $.ajax({
     'url': "https://www.balldontlie.io/api/v1/teams",
     success: data => {
@@ -140,7 +138,6 @@ nbaButton.addEventListener('click', (event) => {
     }
   })
 
-  //reroll team (durant button)
   rerollContainer.addEventListener('click', (event) => {
     teamText.innerHTML = '';
     teamLogo.innerHTML = '';
@@ -163,13 +160,14 @@ getSneaker();
 
   returnContainer.addEventListener('click', (event) => {
     showView('return-home');
+    teamAndShoeContainer.parentNode.removeChild(teamAndShoeContainer)
     teamContainer.parentNode.removeChild(teamContainer);
     teamLogo.parentNode.removeChild(teamLogo);
     shoeContainer.parentNode.removeChild(shoeContainer);
     rerollContainer.parentNode.removeChild(rerollContainer);
     returnContainer.parentNode.removeChild(returnContainer);
   })
-  //function to get random team name generated from data fetched
+
   function getRandomTeamName(teams) {
     return teams[Math.floor(Math.random() * teams.length)].full_name;
   }
