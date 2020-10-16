@@ -2,7 +2,6 @@
   font-family: "Action NBA Cond Web Bold"
 }
 
-
 body {
   background-image: url("assets/hardwood-court.jpg");
 }
@@ -13,15 +12,482 @@ body {
   url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff2") format("woff2"),
   url("assets/@font-face/932af5610ca96d552bb927d95149acad.woff") format("woff"),
   url("assets/@font-face/932af5610ca96d552bb927d95149acad.ttf") format("truetype"),
-  url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg");z
+  url("assets/@font-face/932af5610ca96d552bb927d95149acad.svg") format("svg");
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
+@media (min-width: 375px) {
 
-@media screen and (max-width: 1024px){
+  * {
+    overflow-y: hidden;
+  }
+
+  .header-container {
+  display: flex;
+  }
+
+  .header {
+  font-size: 60pt;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+
+  }
+  .header-blurb{
+    justify-content: center;
+    text-align: center;
+  }
+
+  .we-can-help{
+    margin-top: 2rem;
+  }
+
+  .header-photo {
+  display: flex;
+  height: 5rem;
+  width: 2.5rem;
+  }
+
+  .team-and-shoe {
+    display: flex;
+  }
+
+  .team-and-text {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  .shoe-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    flex: 1;
+    margin-left: 1rem;
+  }
+
+  .team-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+  }
+  .image-container {
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.5rem;
+  }
+  .nba-players {
+    width: 33%;
+    height: 33%;
+  }
+  #team-logo {
+    height: 7.5rem;
+    width: 7.5rem;
+  }
+
+  .sneaker-text{
+    display: flex;
+    text-align: center;
+  }
+  .sneaker-img {
+    width: 10rem;
+    height: 7.5rem;
+  }
+  .sneaker-text,
+  #fan-of,
+  #team-text {
+    font-size: 20pt;
+  }
+
+  .button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 1rem;
+  }
+
+  .return,
+  .reroll {
+  flex-direction: column;
+  object-fit: contain;
+  }
+
+  .return-container,
+  .reroll-container {
+  display: flex;
+  border: 2px solid black;
+  border-radius: .25rem;
+  width: 90%;
+  margin: 1rem;
+  }
+
+  .return {
+    width: 12.5%;
+    height: auto;
+    padding-top: .75rem;
+  }
+
+  .reroll {
+  width: 10%;
+  height: auto;
+  padding-top: .75rem;
+  }
+
+  .return-blurb,
+  .reroll-blurb {
+  font-size: 28pt;
+  padding-left: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  }
+
+
+  #nba-button {
+  width: 25%;
+  height: auto;
+  margin-top: 3rem;
+  }
+
+  .nba-button-container {
+  display: flex;
+  justify-content: center;
+  }
+
+  .blurb-container {
+  display: flex;
+  justify-content: center;
+  }
+
+  .button-blurb{
+    display: flex;
+    justify-content: end;
+    font-size: 24pt;
+    margin-top: 2rem;
+  }
+
+  #nba-button:active,
+  .reroll-container:active,
+  .return-container:active {
+  transform: translateY(4px);
+  }
+}
+
+@media (min-width: 667px) {
+  .header-container {
+  display: flex;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  }
+
+  .header {
+  font-size: 42pt;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  }
+  .header-blurb{
+    justify-content: center;
+    text-align: center;
+    margin-top: -1rem;
+  }
+
+  .header-photo {
+  display: flex;
+  height: 5rem;
+  width: 2.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  }
+
+  .we-can-help {
+    font-size: 28pt;
+  }
+
+  .button-blurb {
+    margin-top: 2.5rem;
+    font-size: 36pt;
+  }
+
+  .team-and-shoe {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .team-and-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -1rem;
+  }
+
+  .team-and-shoe{
+    display: flex;
+  }
+
+  .shoe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -1rem;
+  }
+
+  .team-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: .5rem;
+  }
+
+  .image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -2rem;
+  }
+
+  #team-logo {
+    height: auto;
+    width: 7.5rem;
+  }
+
+  .sneaker-img {
+    width: 10rem;
+    height: 7.5rem;
+  }
+
+  .sneaker-text,
+  #fan-of,
+  #team-text {
+    font-size: 24pt;
+  }
+
+  .button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: -1rem;
+  }
+
+  .return,
+  .reroll {
+  object-fit: contain;
+  }
+
+  .return-container,
+  .reroll-container {
+  border: 2px solid black;
+  border-radius: .25rem;
+  margin: 1rem;
+  flex: 1;
+  width: 45%;
+  align-items: center;
+  }
+
+  .return,
+  .reroll {
+  width: 10%;
+  height: auto;
+  padding-top: .75rem;
+  }
+
+  .return-blurb,
+  .reroll-blurb {
+  font-size: 24pt;
+  padding-left: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  }
+
+
+  #nba-button {
+  width: 10%;
+  height: auto;
+  margin-top: 0;
+  }
+
+  .nba-button-container {
+  display: flex;
+  justify-content: center;
+  }
+
+  .blurb-container {
+  display: flex;
+  justify-content: center;
+  font-size: 12pt;
+  margin-top: -1rem;
+  }
+
+  #nba-button:active,
+  .reroll-container:active,
+  .return-container:active {
+  transform: translateY(4px);
+  }
+}
+
+@media (min-width: 768px) {
+  .header-container {
+  display: flex;
+  }
+
+  .header {
+  font-size: 60pt;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  }
+
+  .header-blurb{
+    justify-content: center;
+    text-align: center;
+  }
+
+
+  .body-container {
+    margin-top: 2rem;
+  }
+
+  .we-can-help {
+    font-size: 48pt;
+  }
+
+  .header-photo {
+  display: flex;
+  height: 5rem;
+  width: 2.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  }
+
+  .team-and-shoe {
+    display: flex;
+  }
+
+  .team-and-text {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex: 50%
+  }
+  .shoe-container {
+    flex: 50%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .team-container {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 36pt;
+  }
+  .image-container {
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.5rem;
+  }
+
+  .nba-players {
+    width: 33%;
+    height: 33%;
+  }
+  #team-logo {
+    height: auto;
+    width: 10rem;
+  }
+
+  .sneaker-img {
+    width: 10rem;
+    height: 7.5rem;
+  }
+  .sneaker-text,
+  #fan-of,
+  #team-text {
+    font-size: 42pt;
+  }
+
+  .button-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  }
+
+  .return,
+  .reroll {
+  flex-direction: column;
+  object-fit: contain;
+  }
+
+  .return-container,
+  .reroll-container {
+  display: flex;
+  border: 2px solid black;
+  border-radius: .25rem;
+  margin: 1rem;
+  width: 90%;
+  }
+
+  .reroll-container {
+    margin-top: -.5rem;
+  }
+
+  .return,
+  .reroll {
+  width: 15%;
+  height: 15%;
+  padding-top: .75rem;
+  }
+
+  .return-blurb,
+  .reroll-blurb {
+  font-size: 48pt;
+  padding-left: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  }
+
+
+  #nba-button {
+  width: 20%;
+  height: auto;
+  }
+
+  .nba-button-container {
+  display: flex;
+  justify-content: center;
+  }
+
+  .blurb-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  }
+
+  .button-blurb{
+    justify-content: center;
+    font-size: 48pt;
+  }
+
+  #nba-button:active,
+  .reroll-container:active,
+  .return-container:active {
+  transform: translateY(4px);
+  }
+}
+
+@media screen and (min-width: 1024px){
   .header-container {
   display: flex;
   }
@@ -44,13 +510,17 @@ body {
   margin-left: 1.5rem;
   margin-right: 1.5rem;
   }
-  .text {
-  font-size: 36pt;
+
+  .we-can-help {
+    font-size: 42pt;
   }
+
   .team-and-shoe {
     display: flex;
   }
+
   .team-and-text {
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -58,6 +528,7 @@ body {
   }
   .shoe-container {
     flex: 50%;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -77,6 +548,7 @@ body {
     width: 15%;
     height: 33%;
   }
+
   #team-logo {
     height: 7.5rem;
     width: 7.5rem;
@@ -86,20 +558,16 @@ body {
     width: 10rem;
     height: 7.5rem;
   }
-  .sneaker-text {
-    font-size: 24pt;
+  .sneaker-text,
+  #fan-of,
+  #team-text {
+    font-size: 36pt;
   }
 
   .sneaker {
     padding: 1.5rem;
     width: 13%;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
   }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
   .button-container {
   display: flex;
@@ -127,14 +595,14 @@ body {
 
   .return,
   .reroll {
-  width: 15%;
-  height: 15%;
+  width: 10%;
+  height: auto;
   padding-top: .75rem;
   }
 
   .return-blurb,
   .reroll-blurb {
-  font-size: 28pt;
+  font-size: 48pt;
   padding-left: 1.5rem;
   align-items: center;
   justify-content: center;
@@ -143,8 +611,8 @@ body {
 
 
   #nba-button {
-  width: 7%;
-  height: 20%;
+  width: 20%;
+  height: auto;
   }
 
   .nba-button-container {
@@ -170,7 +638,7 @@ body {
   }
 }
 
-@media (max-width: 768px) {
+@media screen and (min-width: 1200px){
   .header-container {
   display: flex;
   }
@@ -190,320 +658,21 @@ body {
   display: flex;
   height: 5rem;
   width: 2.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  }
-  .text {
-  font-size: 24pt;
-  }
-  .team-and-shoe {
-    display: flex;
-  }
-  .team-and-text {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    flex: 50%
-  }
-  .shoe-container {
-    flex: 50%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .team-container {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .image-container {
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 1.5rem;
-  }
-  .nba-players {
-    width: 33%;
-    height: 33%;
-  }
-  #team-logo {
-    height: 7.5rem;
-    width: 7.5rem;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   }
 
-  .sneaker-img {
-    width: 10rem;
-    height: 7.5rem;
-  }
-  .sneaker-text {
-    font-size: 24pt;
-  }
-
-  .sneaker {
-    padding: 1.5rem;
-    width: 33%;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-  }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-  .button-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  }
-
-  .return,
-  .reroll {
-  flex-direction: column;
-  object-fit: contain;
-  }
-
-  .return-container,
-  .reroll-container {
-  display: flex;
-  border: 2px solid black;
-  border-radius: .25rem;
-  margin: 1rem;
-  }
-
-  .reroll-container {
-    margin-top: -.5rem;
-  }
-
-  .return,
-  .reroll {
-  width: 15%;
-  height: 15%;
-  padding-top: .75rem;
-  }
-
-  .return-blurb,
-  .reroll-blurb {
-  font-size: 28pt;
-  padding-left: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  padding-top: 1rem;
-  }
-
-
-  #nba-button {
-  width: 20%;
-  height: 20%;
-  }
-
-  .nba-button-container {
-  display: flex;
-  justify-content: center;
-  }
-
-  .blurb-container {
-  display: flex;
-  justify-content: center;
-  }
-
-  .button-blurb{
-    justify-content: center;
-    font-size: 24pt;
-    margin-top: 1rem;
-  }
-
-  #nba-button:active,
-  .reroll-container:active,
-  .return-container:active {
-  transform: translateY(4px);
-  }
-}
-@media (max-width: 667px) {
-  .header-container {
-  display: flex;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  }
-
-  .header {
-  font-size: 42pt;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  }
-  .header-blurb{
-    justify-content: center;
-    text-align: center;
-  }
-  .blurb-container {
-    margin-top: -1rem;
-  }
-
-  .header-photo {
-  display: flex;
-  height: 5rem;
-  width: 2.5rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  }
-  .text {
-  font-size: 24pt;
-  }
   .we-can-help {
-    margin-top: -1.5rem;
+    font-size: 42pt;
   }
+
   .team-and-shoe {
     display: flex;
-  }
-  .team-and-text {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    flex: 50%
-  }
-  .shoe-container {
-    flex: 50%;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-  .team-container {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: -2rem;
-  }
-  .nba-players {
-    width: 15%;
-    height: 15%;
-  }
-  #team-logo {
-    height: 7.5rem;
-    width: 7.5rem;
-  }
-
-  .sneaker-img {
-    width: 10rem;
-    height: 7.5rem;
-  }
-  .sneaker-text {
-    font-size: 24pt;
-  }
-
-  .sneaker {
-    padding: 1.5rem;
-    width: 10%;
     margin-top: -1rem;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
-  }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
-  .button-container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
   }
 
-  .return,
-  .reroll {
-  flex-direction: column;
-  object-fit: contain;
-  }
-
-  .return-container,
-  .reroll-container {
-  display: flex;
-  border: 2px solid black;
-  border-radius: .25rem;
-  margin: 1rem;
-  }
-
-  .reroll-container {
-    margin-top: -.5rem;
-  }
-
-  .return,
-  .reroll {
-  width: 15%;
-  height: 15%;
-  padding-top: .75rem;
-  }
-
-  .return-blurb,
-  .reroll-blurb {
-  font-size: 28pt;
-  padding-left: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  padding-top: 1rem;
-  }
-
-
-  #nba-button {
-  width: 5%;
-  height: 20%;
-  }
-
-  .nba-button-container {
-  display: flex;
-  justify-content: center;
-  margin-top:-1rem;
-  }
-
-  .blurb-container {
-  display: flex;
-  justify-content: center;
-  font-size: 12pt;
-  }
-
-  #nba-button:active,
-  .reroll-container:active,
-  .return-container:active {
-  transform: translateY(4px);
-  }
-}
-@media (max-width: 375px) {
-  .header-container {
-  display: flex;
-  }
-
-  .header {
-  font-size: 60pt;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-  }
-  .header-blurb{
-    justify-content: center;
-    text-align: center;
-  }
-
-  .we-can-help{
-    margin-top: 2rem;
-  }
-
-  .header-photo {
-  display: flex;
-  height: 5rem;
-  width: 2.5rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  }
-  .text {
-  font-size: 24pt;
-  }
-  .team-and-shoe {
-    display: flex;
-  }
   .team-and-text {
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -511,6 +680,7 @@ body {
   }
   .shoe-container {
     flex: 50%;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -521,37 +691,31 @@ body {
     flex-direction: column;
   }
   .image-container {
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
   align-items: center;
   margin-top: 1.5rem;
   }
-  .nba-players {
-    width: 33%;
-    height: 33%;
-  }
+
   #team-logo {
-    height: 7.5rem;
-    width: 7.5rem;
+    height: auto;
+    width: 15rem;
   }
 
   .sneaker-img {
-    width: 10rem;
-    height: 7.5rem;
+    width: 15rem;
+    height: auto;
   }
-  .sneaker-text {
-    font-size: 24pt;
+  .sneaker-text,
+  #fan-of,
+  #team-text {
+    font-size: 36pt;
   }
 
   .sneaker {
     padding: 1.5rem;
-    width: 33%;
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+    width: 13%;
   }
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
   .button-container {
   display: flex;
@@ -568,7 +732,7 @@ body {
   .return-container,
   .reroll-container {
   display: flex;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: .25rem;
   margin: 1rem;
   }
@@ -579,14 +743,14 @@ body {
 
   .return,
   .reroll {
-  width: 15%;
-  height: 15%;
+  width: 5%;
+  height: auto;
   padding-top: .75rem;
   }
 
   .return-blurb,
   .reroll-blurb {
-  font-size: 28pt;
+  font-size: 48pt;
   padding-left: 1.5rem;
   align-items: center;
   justify-content: center;
@@ -595,8 +759,8 @@ body {
 
 
   #nba-button {
-  width: 20%;
-  height: 20%;
+  width: 15%;
+  height: auto;
   }
 
   .nba-button-container {
@@ -611,7 +775,7 @@ body {
 
   .button-blurb{
     justify-content: center;
-    font-size: 24pt;
+    font-size: 36pt;
     margin-top: 1rem;
   }
 
