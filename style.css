@@ -19,6 +19,16 @@ body {
   display: none !important;
 }
 
+.reroll-container:hover,
+.return-container:hover {
+  cursor: pointer;
+}
+
+.reroll-container,
+.return-container {
+  box-shadow: 2px 2px 1px 2px black;
+}
+
 @media (min-width: 375px) {
 
   * {
@@ -776,7 +786,7 @@ body {
   .button-blurb{
     justify-content: center;
     font-size: 36pt;
-    margin-top: 1rem;
+    margin-top: -.5rem;
   }
 
   #nba-button:active,
