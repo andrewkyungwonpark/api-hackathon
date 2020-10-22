@@ -7,6 +7,7 @@ const zipCodeInput = document.getElementById('zip-code-input');
 const cityInput = document.getElementById('city-input')
 const modal = document.querySelector('.modal')
 const modalButton = document.querySelector('.modal-button');
+const errorModal = document.querySelector('.error-modal');
 let sneakerData = null;
 
 const containers = [
@@ -156,7 +157,7 @@ nbaButton.addEventListener('click', (event) => {
     })
   })
 
-getSneaker();
+  getSneaker();
 
   returnContainer.addEventListener('click', (event) => {
     showView('return-home');
@@ -173,38 +174,41 @@ getSneaker();
   }
 })
 
-  function showView(viewName) {
-    const views = document.querySelectorAll('.view')
-    for (let i = 0; i < views.length; i++) {
-      if (views[i].dataset.viewName === viewName) {
-        views[i].classList.remove('hidden')
-      } else {
-        views[i].classList.add('hidden')
-      }
+function showView(viewName) {
+  const views = document.querySelectorAll('.view')
+  for (let i = 0; i < views.length; i++) {
+    if (views[i].dataset.viewName === viewName) {
+      views[i].classList.remove('hidden')
+    } else {
+      views[i].classList.add('hidden')
     }
   }
+}
 
 
 
 function getSneaker() {
   const randomBrand = brands[Math.floor(Math.random() * brands.length)];
-
-  $.ajax({
-    type: 'GET',
-    'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
-    success: data => {
-      const sneakersWithImages = []
-      for(let i = 0; i < data.results.length; i++) {
-        if(data.results[i].media.imageUrl) {
-          sneakersWithImages.push(data.results[i])
+  setTimeout(function () {
+    $.ajax({
+      type: 'GET',
+      'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
+      success: data => {
+        const sneakersWithImages = []
+        for (let i = 0; i < data.results.length; i++) {
+          if (data.results[i].media.imageUrl) {
+            sneakersWithImages.push(data.results[i])
+          }
         }
+        sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
+        let sneakerImg = document.querySelector('.sneaker-img');
+        sneakerImg.src = sneakerData.media.imageUrl;
+        let sneakerText = document.querySelector('.sneaker-text');
+        sneakerText.textContent = 'Your sneaker: \n' + sneakerData.title;
+      },
+      error: () => {
+        errorModal.classList.remove('hidden')
       }
-      sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
-      let sneakerImg = document.querySelector('.sneaker-img');
-      sneakerImg.src = sneakerData.media.imageUrl;
-      let sneakerText = document.querySelector('.sneaker-text');
-      sneakerText.textContent = 'Your sneaker: \n' + sneakerData.title;
-    },
-    error: console.error
-  })
+    })
+  }, 1000)
 }

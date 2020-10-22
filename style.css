@@ -19,6 +19,13 @@ body {
   display: none !important;
 }
 
+.error-modal {
+  height: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 36pt;
+}
+
 .reroll-container:hover,
 .return-container:hover {
   cursor: pointer;
@@ -229,7 +236,8 @@ body {
 
   .team-and-shoe {
     display: flex;
-    margin-top: 1rem;
+    margin-top: -.5rem;
+    margin-left: 2.5rem;
   }
 
   .team-and-text {
@@ -240,22 +248,17 @@ body {
     margin-top: -1rem;
   }
 
-  .team-and-shoe{
-    display: flex;
-  }
-
   .shoe-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -1rem;
   }
 
   .team-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: .5rem;
+    margin-top: 1rem;
   }
 
   .image-container {
@@ -267,7 +270,7 @@ body {
 
   #team-logo {
     height: auto;
-    width: 7.5rem;
+    width: 6.5rem;
   }
 
   .sneaker-img {
@@ -279,6 +282,10 @@ body {
   #fan-of,
   #team-text {
     font-size: 24pt;
+  }
+
+  #team-text {
+    margin-top: -.5rem;
   }
 
   .button-container {
