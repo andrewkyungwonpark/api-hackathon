@@ -26,6 +26,12 @@ body {
   font-size: 36pt;
 }
 
+.spinner {
+  height: 4rem;
+  width: 4rem;
+  font-size: 36pt;
+}
+
 .reroll-container:hover,
 .return-container:hover {
   cursor: pointer;
@@ -245,7 +251,7 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-top: -1rem;
+    margin-top: 1rem;
   }
 
   .shoe-container {
@@ -258,7 +264,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: .5rem;
   }
 
   .image-container {

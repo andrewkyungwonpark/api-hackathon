@@ -8,6 +8,7 @@ const cityInput = document.getElementById('city-input')
 const modal = document.querySelector('.modal')
 const modalButton = document.querySelector('.modal-button');
 const errorModal = document.querySelector('.error-modal');
+const loadingSpinner = document.querySelector('.spinner');
 let sneakerData = null;
 
 const containers = [
@@ -125,9 +126,11 @@ nbaButton.addEventListener('click', (event) => {
   returnContainer.append(returnButton, returnBlurb);
   rerollContainer.append(rerollButton, rerollBlurb);
 
+  showSpinner();
   $.ajax({
     'url': "https://www.balldontlie.io/api/v1/teams",
     success: data => {
+      removeSpinner();
       console.log(data);
       const randomTeam = getRandomTeamName(data.data)
       teamText.textContent = randomTeam
@@ -136,6 +139,10 @@ nbaButton.addEventListener('click', (event) => {
           teamLogo.src = nbaLogosArr[i].image
         }
       }
+    },
+    error: () => {
+      showError();
+      removeSpinner();
     }
   })
 
@@ -143,9 +150,12 @@ nbaButton.addEventListener('click', (event) => {
     teamText.innerHTML = '';
     teamLogo.innerHTML = '';
     getSneaker();
+    showSpinner();
     $.ajax({
       'url': "https://www.balldontlie.io/api/v1/teams",
       success: data => {
+        removeSpinner();
+        removeError();
         const randomTeam = getRandomTeamName(data.data)
         teamText.textContent = randomTeam
         for (let i = 0; i < nbaLogosArr.length; i++) {
@@ -153,6 +163,10 @@ nbaButton.addEventListener('click', (event) => {
             teamLogo.src = nbaLogosArr[i].image
           }
         }
+      },
+      error: () => {
+        showError();
+        removeSpinner();
       }
     })
   })
@@ -186,14 +200,31 @@ function showView(viewName) {
 }
 
 
+function showError() {
+  errorModal.classList.remove('hidden')
+}
+
+function showSpinner() {
+  loadingSpinner.classList.remove('hidden')
+}
+
+function removeError() {
+  errorModal.classList.add('hidden')
+}
+
+function removeSpinner() {
+  loadingSpinner.classList.add('hidden')
+}
 
 function getSneaker() {
   const randomBrand = brands[Math.floor(Math.random() * brands.length)];
   setTimeout(function () {
+    showSpinner();
     $.ajax({
       type: 'GET',
       'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
       success: data => {
+        removeSpinner();
         const sneakersWithImages = []
         for (let i = 0; i < data.results.length; i++) {
           if (data.results[i].media.imageUrl) {
@@ -207,7 +238,8 @@ function getSneaker() {
         sneakerText.textContent = 'Your sneaker: \n' + sneakerData.title;
       },
       error: () => {
-        errorModal.classList.remove('hidden')
+        showError();
+        removeSpinner();
       }
     })
   }, 1000)
