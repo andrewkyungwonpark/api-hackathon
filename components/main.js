@@ -125,37 +125,17 @@ nbaButton.addEventListener('click', (event) => {
   rerollBlurb.classList.add('reroll-blurb')
   returnContainer.append(returnButton, returnBlurb);
   rerollContainer.append(rerollButton, rerollBlurb);
+  rerollContainer.addEventListener('click', resetPage);
+  returnContainer.addEventListener('click', returnHome);
 
   showSpinner();
-  $.ajax({
-    'url': "https://www.balldontlie.io/api/v1/teams",
-    success: data => {
-      removeSpinner();
-      console.log(data);
-      const randomTeam = getRandomTeamName(data.data)
-      teamText.textContent = randomTeam
-      for (let i = 0; i < nbaLogosArr.length; i++) {
-        if (randomTeam === nbaLogosArr[i].team) {
-          teamLogo.src = nbaLogosArr[i].image
-        }
-      }
-    },
-    error: () => {
-      showError();
-      removeSpinner();
-    }
-  })
 
-  rerollContainer.addEventListener('click', (event) => {
-    teamText.innerHTML = '';
-    teamLogo.innerHTML = '';
-    getSneaker();
-    showSpinner();
+
+  function getRandomTeam(data) {
     $.ajax({
       'url': "https://www.balldontlie.io/api/v1/teams",
       success: data => {
         removeSpinner();
-        removeError();
         const randomTeam = getRandomTeamName(data.data)
         teamText.textContent = randomTeam
         for (let i = 0; i < nbaLogosArr.length; i++) {
@@ -163,17 +143,52 @@ nbaButton.addEventListener('click', (event) => {
             teamLogo.src = nbaLogosArr[i].image
           }
         }
+
       },
       error: () => {
         showError();
         removeSpinner();
       }
     })
-  })
+  }
 
-  getSneaker();
+  function getRandomTeamName(teams) {
+    return teams[Math.floor(Math.random() * teams.length)].full_name;
+  }
 
-  returnContainer.addEventListener('click', (event) => {
+  function getSneaker() {
+    const randomBrand = brands[Math.floor(Math.random() * brands.length)];
+    const rerollContainer = document.querySelector('.reroll-container');
+    rerollContainer.removeEventListener('click', getRandomTeam);
+    setTimeout(function () {
+      showSpinner();
+      $.ajax({
+        type: 'GET',
+        'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
+        success: data => {
+          removeSpinner();
+          const sneakersWithImages = []
+          for (let i = 0; i < data.results.length; i++) {
+            if (data.results[i].media.imageUrl) {
+              sneakersWithImages.push(data.results[i])
+            }
+          }
+          rerollContainer.addEventListener('click', getRandomTeam);
+          sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
+          let sneakerImg = document.querySelector('.sneaker-img');
+          sneakerImg.src = sneakerData.media.imageUrl;
+          let sneakerText = document.querySelector('.sneaker-text');
+          sneakerText.textContent = 'Your sneaker: \n' + sneakerData.title;
+        },
+        error: () => {
+          showError();
+          removeSpinner();
+        }
+      })
+    }, 1000)
+  }
+
+  function returnHome(event) {
     showView('return-home');
     teamAndShoeContainer.parentNode.removeChild(teamAndShoeContainer)
     teamContainer.parentNode.removeChild(teamContainer);
@@ -181,11 +196,19 @@ nbaButton.addEventListener('click', (event) => {
     shoeContainer.parentNode.removeChild(shoeContainer);
     rerollContainer.parentNode.removeChild(rerollContainer);
     returnContainer.parentNode.removeChild(returnContainer);
-  })
-
-  function getRandomTeamName(teams) {
-    return teams[Math.floor(Math.random() * teams.length)].full_name;
+    rerollContainer.removeEventListener('click', getSneaker)
+    rerollContainer.removeEventListener('click', getRandomTeam)
   }
+
+  function resetPage(event) {
+    teamText.innerHTML = '';
+    teamLogo.innerHTML = '';
+    getSneaker();
+    getRandomTeam();
+  }
+
+  getRandomTeam();
+  getSneaker();
 })
 
 function showView(viewName) {
@@ -214,33 +237,4 @@ function removeError() {
 
 function removeSpinner() {
   loadingSpinner.classList.add('hidden')
-}
-
-function getSneaker() {
-  const randomBrand = brands[Math.floor(Math.random() * brands.length)];
-  setTimeout(function () {
-    showSpinner();
-    $.ajax({
-      type: 'GET',
-      'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
-      success: data => {
-        removeSpinner();
-        const sneakersWithImages = []
-        for (let i = 0; i < data.results.length; i++) {
-          if (data.results[i].media.imageUrl) {
-            sneakersWithImages.push(data.results[i])
-          }
-        }
-        sneakerData = sneakersWithImages[Math.floor(Math.random() * sneakersWithImages.length)];
-        let sneakerImg = document.querySelector('.sneaker-img');
-        sneakerImg.src = sneakerData.media.imageUrl;
-        let sneakerText = document.querySelector('.sneaker-text');
-        sneakerText.textContent = 'Your sneaker: \n' + sneakerData.title;
-      },
-      error: () => {
-        showError();
-        removeSpinner();
-      }
-    })
-  }, 1000)
 }
