@@ -42,6 +42,10 @@ body {
   box-shadow: 2px 2px 1px 2px black;
 }
 
+#nba-button:hover {
+  border: 2px solid black;
+}
+
 @media (min-width: 375px) {
 
   * {
