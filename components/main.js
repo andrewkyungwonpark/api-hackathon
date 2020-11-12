@@ -132,24 +132,27 @@ nbaButton.addEventListener('click', (event) => {
 
 
   function getRandomTeam(data) {
-    $.ajax({
-      'url': "https://www.balldontlie.io/api/v1/teams",
-      success: data => {
-        removeSpinner();
-        const randomTeam = getRandomTeamName(data.data)
-        teamText.textContent = randomTeam
-        for (let i = 0; i < nbaLogosArr.length; i++) {
-          if (randomTeam === nbaLogosArr[i].team) {
-            teamLogo.src = nbaLogosArr[i].image
+    setTimeout(function () {
+      $.ajax({
+        'url': "https://www.balldontlie.io/api/v1/teams",
+        success: data => {
+          removeSpinner();
+          const randomTeam = getRandomTeamName(data.data)
+          teamText.textContent = randomTeam
+          for (let i = 0; i < nbaLogosArr.length; i++) {
+            if (randomTeam === nbaLogosArr[i].team) {
+              teamLogo.src = nbaLogosArr[i].image
+            }
           }
-        }
 
-      },
-      error: () => {
-        showError();
-        removeSpinner();
-      }
+        },
+        error: () => {
+          showError();
+          removeSpinner();
+        }
+      }, 1000)
     })
+
   }
 
   function getRandomTeamName(teams) {
@@ -159,7 +162,7 @@ nbaButton.addEventListener('click', (event) => {
   function getSneaker() {
     const randomBrand = brands[Math.floor(Math.random() * brands.length)];
     const rerollContainer = document.querySelector('.reroll-container');
-    rerollContainer.removeEventListener('click', getRandomTeam);
+    rerollContainer.classList.add('disable')
     setTimeout(function () {
       showSpinner();
       $.ajax({
@@ -167,6 +170,7 @@ nbaButton.addEventListener('click', (event) => {
         'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
         success: data => {
           removeSpinner();
+          rerollContainer.classList.remove('disable');
           const sneakersWithImages = []
           for (let i = 0; i < data.results.length; i++) {
             if (data.results[i].media.imageUrl) {
