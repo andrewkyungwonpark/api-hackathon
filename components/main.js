@@ -129,6 +129,21 @@ nbaButton.addEventListener('click', (event) => {
   returnContainer.addEventListener('click', returnHome);
 
   showSpinner();
+  function showError() {
+    errorModal.classList.remove('hidden')
+  }
+
+  function showSpinner() {
+    loadingSpinner.classList.remove('hidden')
+  }
+
+  function removeError() {
+    errorModal.classList.add('hidden')
+  }
+
+  function removeSpinner() {
+    loadingSpinner.classList.add('hidden')
+  }
 
 
   function getRandomTeam(data) {
@@ -224,21 +239,4 @@ function showView(viewName) {
       views[i].classList.add('hidden')
     }
   }
-}
-
-
-function showError() {
-  errorModal.classList.remove('hidden')
-}
-
-function showSpinner() {
-  loadingSpinner.classList.remove('hidden')
-}
-
-function removeError() {
-  errorModal.classList.add('hidden')
-}
-
-function removeSpinner() {
-  loadingSpinner.classList.add('hidden')
 }
