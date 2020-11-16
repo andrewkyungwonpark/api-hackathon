@@ -26,12 +26,6 @@ body {
   font-size: 36pt;
 }
 
-.spinner {
-  height: 4rem;
-  width: 4rem;
-  font-size: 36pt;
-}
-
 .reroll-container:hover,
 .return-container:hover {
   cursor: pointer;
@@ -40,6 +34,16 @@ body {
 .reroll-container,
 .return-container {
   box-shadow: 2px 2px 1px 2px black;
+}
+
+.reroll-container:hover,
+.return-container:hover {
+  background-color: lightgray;
+}
+
+.spinner {
+  width: 100%;
+  justify-content: center;
 }
 
 #nba-button:hover {
@@ -792,6 +796,12 @@ body {
   #nba-button {
   width: 15%;
   height: auto;
+  }
+
+  #nba-button:hover {
+    width: 15.13%;
+    height: auto;
+    border: 2px solid black;
   }
 
   .nba-button-container {

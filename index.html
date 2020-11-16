@@ -6,9 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <link href="style.css" rel="stylesheet">
 </head>
 
@@ -29,24 +28,22 @@
             data-view-name="return-home">
         </div>
       </div>
-      <div class="spinner view hidden">
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
-      </div>
       <div class="error-modal view hidden">
         <p class="error-msg">Something went wrong...please try again</p>
       </div>
-      <div class="view image-container">
-      </div>
       <div class="blurb-container">
-        <h2 class="view button-blurb" data-view-name="return-home">Click the logo to get a team and a pair of shoes!
-        </h2>
+        <div class="spinner view hidden">
+          <div class="spinner-border text-dark" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+          <h2 class="view button-blurb" data-view-name="return-home">Click the logo to get a team and a pair of shoes!
+          </h2>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script src="components/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="components/main.js"></script>
 </body>
 
 </html>
