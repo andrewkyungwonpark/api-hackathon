@@ -185,6 +185,7 @@ nbaButton.addEventListener('click', (event) => {
         'url': "https://api.thesneakerdatabase.com/v1/sneakers?limit=100&brand=" + randomBrand,
         success: data => {
           removeSpinner();
+          getRandomTeam();
           rerollContainer.classList.remove('disable');
           const sneakersWithImages = []
           for (let i = 0; i < data.results.length; i++) {
@@ -226,7 +227,6 @@ nbaButton.addEventListener('click', (event) => {
     getRandomTeam();
   }
 
-  getRandomTeam();
   getSneaker();
 })
 
